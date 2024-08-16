@@ -1,0 +1,26 @@
+
+.productsListGrid{
+    max-width: 80vw;
+    margin: 10vh auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+}
+
+@media(max-width: 1270px){
+    .productsListGrid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(max-width: 980px){
+    .productsListGrid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 640px){
+    .productsListGrid{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
