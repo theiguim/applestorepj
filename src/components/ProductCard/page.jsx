@@ -30,7 +30,7 @@ const ProductCard = ({ product }) => {
 
                 <p className={styles.cardPrice}
                 >
-                    $ {price}
+                    R${price}
                 </p>
 
                 <button

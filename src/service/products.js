@@ -5,9 +5,7 @@ export const fetchProducts = () => {
     return products;
 };
 
-export const fetchProduct = async ({ params }) => {
-
-    const { id } = params;
+export const fetchProduct = async (id) => {
 
     const product = await fetch(`${process.env.NEXT_PUBLIC_APIURL}/api/products/${id}`)
         .then(res => res.json());
