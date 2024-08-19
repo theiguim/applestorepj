@@ -1,3 +1,4 @@
+import { useCart } from "@/hooks/useCart";
 import styles from "./styles.module.scss";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,6 +7,7 @@ import Link from "next/link";
 const ProductCard = ({ product }) => {
 
     const { id, name, imageUrl, price } = product;
+    const {addProduct} = useCart();
 
     return (
         <div className={styles.card}>
@@ -35,9 +37,8 @@ const ProductCard = ({ product }) => {
 
                 <button
                     className={styles.btn}
-                // onClick={()=>{
 
-                // }}
+                    onClick={() => addProduct(product)}
                 >
                     Adicionar ao Carrinho
                 </button>
