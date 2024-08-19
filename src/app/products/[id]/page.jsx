@@ -10,6 +10,17 @@ export const generateStaticParams = async () => {
   }));
 };
 
+export const generateMetadata = async ({params}) =>{
+
+  const {id} = params;
+  const product = await fetchProduct(id);
+
+  return {
+    title: product.name,
+    description: product.description
+  };
+};
+
 
 const Product = async ({ params }) => {
 
