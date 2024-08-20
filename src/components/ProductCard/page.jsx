@@ -46,7 +46,7 @@ const ProductCard = ({ product }) => {
                     onClick={() => {
                         addProduct(product);
                         setToastIsOpen(true);
-                        setTimeout(()=> setToastIsOpen(false), 1000 *3)
+                        setTimeout(()=> setToastIsOpen(false), 1000 *1.5)
                     }}
                 >
                     Adicionar ao Carrinho
