@@ -11,7 +11,7 @@ const CartTableRow = (props) => {
     const { addProduct, removeProduct } = useCart();
 
     return (
-        
+
         <tr className={styles.line}>
             <td>
                 <div className={styles.headTab}>
@@ -39,8 +39,8 @@ const CartTableRow = (props) => {
                     className={styles.btnSub}
                     onClick={() => removeProduct(props.entry.product.id)}
                 >-</button>
-                
-            </td> 
+
+            </td>
         </tr>
     );
 };
@@ -67,29 +67,30 @@ const CartTable = () => {
     }, [cart]);
 
     return (
-        <table 
-        className={styles.table}
-        style={{ minWidth: "32rem" }}>
+        <div className={styles.tableWrapper}>
+            <table
+                className={styles.table}>
 
-            <thead className={styles.thead}>
-                <tr>
-                    <th>Produto</th>
-                    <th>Preço</th>
-                    <th>Qtd.</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                {cartEntries.map(entry =>
-                    <CartTableRow
-                        key={entry.product.id}
-                        entry={entry} 
-                       
+                <thead className={styles.thead}>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Preço</th>
+                        <th>Qtd.</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {cartEntries.map(entry =>
+                        <CartTableRow
+                            key={entry.product.id}
+                            entry={entry}
+
                         />)}
-                       
-            </tbody>
-            
-        </table>
+
+                </tbody>
+
+            </table>
+        </div>
     )
 
 }

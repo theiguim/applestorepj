@@ -1,6 +1,7 @@
 .table {
-    max-width: 80vw;
-    margin: auto;
+    width: 100%;
+    min-width: 32rem;
+    border-collapse: collapse;
 }
 
 .thead th {
@@ -27,7 +28,7 @@
 }
 
 .btnSum {
-    background-color: rgb(12, 175, 12);
+    background-color: rgb(23, 46, 255);
     border: none;
     color: white;
     width: 30px;
@@ -44,7 +45,7 @@
 
 
 .btnSub {
-    background-color: red;
+    background-color: rgb(255, 28, 28);
     border: none;
     color: white;
     width: 30px;

@@ -7,10 +7,12 @@ const CartTotal = () =>{
     const {cart} = useCart();
 
     return(
-        <div className={styles.container}>
+       <div className={styles.totalWrapper}>
+         <div className={styles.container}>
             <strong>Total: </strong>
             <span>R$ {cart.reduce((total, product)=> total + product.price, 0)}</span>
         </div>
+       </div>
     );
 };
 
