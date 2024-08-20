@@ -11,7 +11,7 @@ const CartTotal = () =>{
             <strong>Total: </strong>
             <span>R$ {cart.reduce((total, product)=> total + product.price, 0)}</span>
         </div>
-    )
-}
+    );
+};
 
-export default CartTotal
+export default CartTotal;

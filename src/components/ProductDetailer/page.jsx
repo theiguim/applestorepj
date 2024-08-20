@@ -1,11 +1,18 @@
+"use client"
+
 import Image from "next/image";
 import styles from "./styles.module.scss";
+import SucessToast from "../SucessToast/page";
+import { useCart } from "@/hooks/useCart";
+import { useState } from "react";
 
 
 
 const ProductDetailer = ({ product }) => {
 
     const {name, description, price, imageUrl } = product
+    const {addProduct} = useCart();
+    const [toastIsOpen, setToastIsOpen] = useState(false);
 
     return (
 
@@ -25,7 +32,15 @@ const ProductDetailer = ({ product }) => {
                     {description}
                 </p>
 
-                <button className={styles.btn}>Compre agora</button>
+                <button 
+                className={styles.btn}
+                onClick={()=>{
+                    addProduct(product);
+                    setToastIsOpen(true)
+                }}
+                
+                >Compre agora</button>
+                <SucessToast toastIsOpen={toastIsOpen} setToastIsOpen={setToastIsOpen} />
             </div>
         </div>
     );
