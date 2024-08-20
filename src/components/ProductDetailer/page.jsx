@@ -36,9 +36,9 @@ const ProductDetailer = ({ product }) => {
                 className={styles.btn}
                 onClick={()=>{
                     addProduct(product);
-                    setToastIsOpen(true)
-                }}
-                
+                    setToastIsOpen(true);
+                    setTimeout(()=> setToastIsOpen(false), 1000 *3);
+                }}             
                 >Compre agora</button>
                 <SucessToast toastIsOpen={toastIsOpen} setToastIsOpen={setToastIsOpen} />
             </div>

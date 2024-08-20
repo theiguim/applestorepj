@@ -4,12 +4,15 @@ import { useCart } from "@/hooks/useCart";
 import styles from "./styles.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import SucessToast from "../SucessToast/page";
 
 
 const ProductCard = ({ product }) => {
 
     const { id, name, imageUrl, price } = product;
     const {addProduct} = useCart();
+    const [toastIsOpen, setToastIsOpen] = useState(false);
 
     return (
         <div className={styles.card}>
@@ -40,10 +43,15 @@ const ProductCard = ({ product }) => {
                 <button
                     className={styles.btn}
 
-                    onClick={() => addProduct(product)}
+                    onClick={() => {
+                        addProduct(product);
+                        setToastIsOpen(true);
+                        setTimeout(()=> setToastIsOpen(false), 1000 *3)
+                    }}
                 >
                     Adicionar ao Carrinho
                 </button>
+                <SucessToast toastIsOpen={toastIsOpen} setToastIsOpen={setToastIsOpen}/>
             </div>
         </div >
     )
