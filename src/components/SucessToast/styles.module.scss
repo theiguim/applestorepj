@@ -8,7 +8,7 @@
     background-color: rgb(42, 212, 42);
     opacity: 0;
     transform: translateY(100%);
-    animation: slideIn 0.5s ease forwards, slideOut 0.5s ease forwards 4.5s;
+    animation: slideIn 0.5s ease forwards, slideOut 0.5s ease forwards 1.5s;
 }
 
 @keyframes slideIn {
