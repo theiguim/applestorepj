@@ -1,5 +1,6 @@
 "use client"
 
+import styles from "./styles.module.scss";
 import { useCart } from "@/hooks/useCart";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -10,14 +11,15 @@ const CartTableRow = (props) => {
     const { addProduct, removeProduct } = useCart();
 
     return (
-        <tr>
+        
+        <tr className={styles.line}>
             <td>
-                <div>
+                <div className={styles.headTab}>
                     <Image
                         src={props.entry.product.imageUrl}
                         alt={props.entry.product.name}
                         height={50}
-                        width={50}
+                        width={55}
                     />
 
                     {props.entry.product.name}
@@ -26,16 +28,19 @@ const CartTableRow = (props) => {
 
             <td>R$ {props.entry.product.price}</td>
             <td>{props.entry.quantity}</td>
-            <td>$ {(props.entry.product.price * props.entry.quantity)}</td>
-            <td>
+            <td>R$ {(props.entry.product.price * props.entry.quantity)}</td>
+            <td className={styles.tdBtn}>
                 <button
+                    className={styles.btnSum}
                     onClick={() => addProduct(props.entry.product)}
                 >+</button>
                 {" "}
                 <button
+                    className={styles.btnSub}
                     onClick={() => removeProduct(props.entry.product.id)}
-                    >-</button>
-            </td>
+                >-</button>
+                
+            </td> 
         </tr>
     );
 };
@@ -62,9 +67,11 @@ const CartTable = () => {
     }, [cart]);
 
     return (
-        <table style={{ minWidth: "32rem" }}>
+        <table 
+        className={styles.table}
+        style={{ minWidth: "32rem" }}>
 
-            <thead>
+            <thead className={styles.thead}>
                 <tr>
                     <th>Produto</th>
                     <th>Preço</th>
@@ -73,8 +80,15 @@ const CartTable = () => {
                 </tr>
             </thead>
             <tbody>
-                {cartEntries.map(entry => <CartTableRow key={entry.product.id} entry={entry} />)}
+                {cartEntries.map(entry =>
+                    <CartTableRow
+                        key={entry.product.id}
+                        entry={entry} 
+                       
+                        />)}
+                       
             </tbody>
+            
         </table>
     )
 
