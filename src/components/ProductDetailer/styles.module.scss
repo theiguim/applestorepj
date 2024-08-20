@@ -1,6 +1,6 @@
 .container {
     max-width: 70vw;
-    margin: auto;
+    margin: 10vh auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,13 +58,14 @@
     }
 }
 
-@media(max-width: 525px) {
+@media(max-width: 550px) {
     .container {
         max-width: 96vw;
     }
 
     .content {
-        min-width: auto;
+        width: 80vw;
+        min-width: 40vw;
     }
 
     .image {
